@@ -49,32 +49,19 @@ export const KanbanBoard = () => {
     <>
       <div className="kanboard">
         <div className="drag-container container">
-          <h2 className="head">
-            Kanban Tasks
-          </h2>
+          <h4 className="head">
+            Project Tasks
+          </h4>        
 
-          <div className="row">
-            <div className="col-4">
-              <span className="group-header">To Do</span>
-            </div>
-            <div className="col-4">
-              <span className="group-header">
-                In Progress
-              </span>
-            </div>
-            <div className="col-4">
-              <span className="group-header">Done</span>
-            </div>
-          </div>
-
-          <div className="row">
+          <div className="d-flex flex-auto flex-row mt-3">            
             <div
-              className="toDo col-4"
+              className="toDo col-4 mr-2"
               onDragOver={(event) => onDragOver(event)}
               onDrop={(event) => {
                 onDrop(event, "toDo");
               }}
             >
+              <div draggable={false} className="group-header py-2 mx-2">To Do</div>
               {tasks.map((task: any, key: number) => {
                 return task.type === "toDo" ? (
                   <div
@@ -83,7 +70,7 @@ export const KanbanBoard = () => {
                       onDragStart(event, task.taskName)
                     }
                     key={task.taskName}
-                    className="draggable card"
+                    className="draggable card m-2 "
                     style={{
                       backgroundColor: "yellow",
                       
@@ -97,13 +84,14 @@ export const KanbanBoard = () => {
               })}
             </div>
 
-            <div
-              className="inProgress col-4"
+            <div            
+              className="inProgress col-4 mr-2"
               onDragOver={(event) => onDragOver(event)}
               onDrop={(event) => {
                 onDrop(event, "inProgress");
               }}
             >
+              <div draggable={false} className="group-header py-2 mx-2">In Progress</div>
               {tasks.map((task: any, key: number) => {
                 return task.type === "inProgress" ? (
                   <div
@@ -112,7 +100,7 @@ export const KanbanBoard = () => {
                       onDragStart(event, task.taskName)
                     }
                     key={task.taskName}
-                    className="draggable card"
+                    className="draggable card m-2"
                     style={{
                       backgroundColor: "cyan",
                     }}
@@ -124,13 +112,15 @@ export const KanbanBoard = () => {
                 );
               })}
             </div>
+            
             <div
-              className="droppable col-4"
+              className="droppable done col-4 "
               onDragOver={(event) => onDragOver(event)}
               onDrop={(event) => {
                 onDrop(event, "done");
               }}
             >
+              <div draggable={false} className="group-header py-2 mx-2">Done</div>
               {tasks.map((task: any, key: number) => {
                 return task.type === "done" ? (
                   <div
@@ -139,7 +129,7 @@ export const KanbanBoard = () => {
                       onDragStart(event, task.taskName)
                     }
                     key={task.taskName}
-                    className="card draggable"
+                    className="card draggable m-2"
                     style={{
                       backgroundColor: "green",
                     }}

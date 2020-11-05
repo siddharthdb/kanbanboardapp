@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "react-bootstrap";
 import "./App.scss";
-import { KanbanBoard } from "./Kanbanboard";
-// import { KanbanTask } from "./KanbanTask";
+import { KanbanBoard } from "./components/Kanbanboard";
+import { KanbanTask } from "./components/KanbanTask";
 import logo from "./logo.svg";
 
-function App() {
+const App = () => {
+
+  const handleSubmit = () => {
+
+  }
+
   return (
-    <div className="App">
+    <div>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">
           <img
@@ -23,7 +28,7 @@ function App() {
       </Navbar>
       <div className="container">
         <KanbanBoard></KanbanBoard>
-        {/* <KanbanTask></KanbanTask> */}
+        {/* <KanbanTask handleSubmit={handleSubmit}></KanbanTask> */}
       </div>     
     </div>
   );

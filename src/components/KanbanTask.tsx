@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 
-export const KanbanTask = () => {
+export const KanbanTask = (props: any) => {
+  
   return (
     <>
-      <Form>
+      <Form onSubmit={props.handleSubmit}>
         <Form.Group as={Row}>
               <Form.Label column sm="1">Add Task</Form.Label>
               <Col sm="8">
