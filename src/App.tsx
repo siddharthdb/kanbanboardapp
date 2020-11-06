@@ -1,37 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navbar } from "react-bootstrap";
+
 import "./App.scss";
+import brand from "./brand.svg";
+
 import { KanbanBoard } from "./components/Kanbanboard";
-import { KanbanTask } from "./components/KanbanTask";
-import logo from "./logo.svg";
 
 const App = () => {
-
-  const handleSubmit = () => {
-
-  }
-
   return (
     <div>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">
           <img
-            src={logo}
+            src={brand}
             width="30"
             height="30"
-            className="d-inline-block align-top"
+            className="d-inline-block align-top brand-img"
             alt="React Bootstrap logo"
-          />
-          {' '}
-      Kanban Board
+          />{" "}
+          Kanban Board
         </Navbar.Brand>
       </Navbar>
-      <div className="container">
-        <KanbanBoard></KanbanBoard>
-        {/* <KanbanTask handleSubmit={handleSubmit}></KanbanTask> */}
-      </div>     
+      <KanbanBoard></KanbanBoard>
     </div>
   );
-}
+};
 
 export default App;
