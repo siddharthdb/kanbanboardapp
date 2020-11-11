@@ -17,9 +17,9 @@ export const KanbanBoard = () => {
   };
 
   const onDrop = (event: any, cat: TaskType) => {
-    let taskName = event.dataTransfer.getData("taskName");
+    const taskName = event.dataTransfer.getData("taskName");
 
-    let newTasks: Task[] = tasks.filter((task) => {
+    const newTasks: Task[] = tasks.filter((task) => {
       if (task.taskName === taskName) {
         task.type = cat;
       }
@@ -30,10 +30,10 @@ export const KanbanBoard = () => {
   };
 
   const handleRemoveTask = (id: number) => {
-    let newTasks = tasks.filter((t: Task) => t.id !== id);
+    const newTasks = tasks.filter((t: Task) => t.id !== id);
 
-    setTasks([...newTasks])
-  }
+    setTasks([...newTasks]);
+  };
 
   const handleAddTask = (task: Task) => {
     setTasks([task, ...tasks]);
@@ -90,9 +90,7 @@ export const KanbanBoard = () => {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <AddTask
-              handleSubmit={handleAddTask}
-            ></AddTask>
+            <AddTask handleSubmit={handleAddTask}></AddTask>
           </Modal.Body>
         </Modal>
       </div>

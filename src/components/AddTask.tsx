@@ -5,11 +5,10 @@ import { Task, TaskType } from "../models/Tasks";
 export const AddTask = (props: any) => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    let task = new Task();
+    const task = new Task();
     task.id = Date.now();
     task.taskName = event.target.elements.name.value;
-    task.description =
-      event.target.elements.description.value;
+    task.description = event.target.elements.description.value;
     task.type = TaskType.toDo;
     props.handleSubmit(task);
   };

@@ -4,13 +4,11 @@ import { Task, TaskType } from "../models/Tasks";
 import Remove from "./delete-bin.svg";
 
 export const KanbanColumn = (props: any) => {
-  const columnStyle = `${
-    TaskType[props.taskType]
-  } col-4 mr-2`;
+  const columnStyle = `${TaskType[props.taskType]} col-4 mr-2`;
 
   const deleteTask = (id: Number) => {
     props.handleRemoveTask(id);
-  }
+  };
 
   return (
     <div
@@ -21,36 +19,26 @@ export const KanbanColumn = (props: any) => {
       }}
     >
       <div draggable={false} className="group-header mx-2">
-        <Badge
-          pill
-          variant="secondary"
-          className="px-2 py-1 my-3 mx-1"
-        >
-          {
-            props.tasks.filter(
-              (t: any) => t.type === props.taskType
-            ).length
-          }
+        <Badge pill variant="secondary" className="px-2 py-1 my-3 mx-1">
+          {props.tasks.filter((t: any) => t.type === props.taskType).length}
         </Badge>{" "}
-        <span className="my-3 mx-1">
-          {props.columnName}
-        </span>
+        <span className="my-3 mx-1">{props.columnName}</span>
         <button
           className="float-right btn btn-light"
           style={{ padding: 0 }}
           onClick={props.handleModal}
           hidden={props.taskType !== TaskType.toDo}
         >
-          <span className="px-2" style={{ fontSize: 28 }}>+</span>
+          <span className="px-2" style={{ fontSize: 28 }}>
+            +
+          </span>
         </button>
       </div>
       {props.tasks.map((task: Task, key: number) => {
         return task.type === props.taskType ? (
           <div
             draggable={true}
-            onDragStart={(event) =>
-              props.onDragStart(event, task.taskName)
-            }
+            onDragStart={(event) => props.onDragStart(event, task.taskName)}
             key={key}
             className="draggable card m-2 "
             style={{
