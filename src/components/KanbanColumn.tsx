@@ -6,7 +6,7 @@ import Remove from "./delete-bin.svg";
 export const KanbanColumn = (props: any) => {
   const columnStyle = `${TaskType[props.taskType]} col-4 mr-2`;
 
-  const deleteTask = (id: Number) => {
+  const deleteTask = (id: number) => {
     props.handleRemoveTask(id);
   };
 
