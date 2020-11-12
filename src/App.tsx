@@ -6,7 +6,7 @@ import brand from "./brand.svg";
 
 import { KanbanBoard } from "./components/Kanbanboard";
 
-const App = () => {
+const App: React.FunctionComponent = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">

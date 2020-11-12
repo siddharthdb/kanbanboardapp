@@ -2,7 +2,11 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { Task, TaskType } from "../models/Tasks";
 
-export const AddTask = (props: any) => {
+interface IProps {
+  handleSubmit: (task: Task) => void;
+}
+
+export const AddTask: React.FunctionComponent<IProps> = (props: IProps) => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const task = new Task();

@@ -4,7 +4,7 @@ import { Task, TaskType } from "../models/Tasks";
 import { AddTask } from "./AddTask";
 import { KanbanColumn } from "./KanbanColumn";
 
-export const KanbanBoard = () => {
+export const KanbanBoard: React.FunctionComponent = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [isOpen, toggleModal] = useState(false);
 
