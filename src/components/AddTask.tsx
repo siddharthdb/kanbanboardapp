@@ -7,6 +7,8 @@ interface IProps {
 }
 
 export const AddTask: React.FunctionComponent<IProps> = (props: IProps) => {
+  const displayName = 'kanbanAddTask';
+  
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const task = new Task();
@@ -16,8 +18,9 @@ export const AddTask: React.FunctionComponent<IProps> = (props: IProps) => {
     task.type = TaskType.toDo;
     props.handleSubmit(task);
   };
+
   return (
-    <>
+    <div className={displayName}>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Task Name</Form.Label>
@@ -27,18 +30,19 @@ export const AddTask: React.FunctionComponent<IProps> = (props: IProps) => {
             name="taskName"
             placeholder="e.g.: Bug Fix - For some ABCD item"
           ></Form.Control>
-          <Form.Label>Task Description</Form.Label>
+          <Form.Label className="mt-3">Task Description</Form.Label>
           <Form.Control
-            type="text"
+            as="textarea"
+            rows={3}
             id="description"
             name="description"
-            placeholder="e.g.: Bug Fix - For some ABCD item"
+            placeholder="e.g.: Description of task"
           ></Form.Control>
-          <Button variant="primary" type="submit">
+          <Button className="mt-3" variant="primary" type="submit">
             Add Task
           </Button>
         </Form.Group>
       </Form>
-    </>
+    </div>
   );
 };

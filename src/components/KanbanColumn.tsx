@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import { Task, TaskType } from "../models/Tasks";
-import Remove from "./delete-bin.svg";
+import Remove from "../assets/delete-bin.svg";
 
 interface IProps {
   columnName: string;
@@ -27,6 +27,7 @@ export const KanbanColumn: React.FunctionComponent<IProps> = (
 
   return (
     <div
+      role="kanbanColumn"
       className={columnStyle}
       onDragOver={(event) => props.onDragOver(event)}
       onDrop={(event) => {

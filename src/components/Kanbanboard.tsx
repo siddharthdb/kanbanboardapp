@@ -84,7 +84,7 @@ export const KanbanBoard: React.FunctionComponent = () => {
         </div>
 
         <Modal show={isOpen} onHide={handleModal} centered animation={false}>
-          <Modal.Header>
+          <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
               Add Task
             </Modal.Title>

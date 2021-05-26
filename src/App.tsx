@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar } from "react-bootstrap";
 
 import "./App.scss";
-import brand from "./brand.svg";
+import brand from "./assets/brand.svg";
 
 import { KanbanBoard } from "./components/Kanbanboard";
 
