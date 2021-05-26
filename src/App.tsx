@@ -4,7 +4,7 @@ import { Navbar } from "react-bootstrap";
 import "./App.scss";
 import brand from "./assets/brand.svg";
 
-import { KanbanBoard } from "./components/Kanbanboard";
+import { KanbanBoard } from "./components/kanban-board/Kanbanboard";
 
 const App: React.FunctionComponent = () => {
   return (

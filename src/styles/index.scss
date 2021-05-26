@@ -1,7 +1,8 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-@import "../components/Kanban.scss";
-@import "../components/AddTask.scss";
+@import "../components/kanban-board/Kanban.scss";
+@import "../components/kanban-column/KanbanColumn.scss";
+@import "../components/add-task/AddTask.scss";
 @import "../App.scss";
 
 body {

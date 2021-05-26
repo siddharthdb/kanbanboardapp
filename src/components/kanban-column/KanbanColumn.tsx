@@ -1,7 +1,6 @@
 import React from "react";
-import { Badge } from "react-bootstrap";
-import { Task, TaskType } from "../models/Tasks";
-import Remove from "../assets/delete-bin.svg";
+import { Task, TaskType } from "../../models/Tasks";
+import Remove from "../../assets/delete-bin.svg";
 
 interface IProps {
   columnName: string;
@@ -19,7 +18,7 @@ export const KanbanColumn: React.FunctionComponent<IProps> = (
 ) => {
   const columnStyle = `${
     TaskType[props.taskType]
-  } col-4 mr-2`;
+  } col-4 mr-2 task-type-${TaskType[props.taskType]}`;
 
   const deleteTask = (id: number) => {
     props.handleRemoveTask(id);
@@ -34,31 +33,35 @@ export const KanbanColumn: React.FunctionComponent<IProps> = (
         props.onDrop(event, props.taskType);
       }}
     >
-      <div draggable={false} className="group-header mx-2">
-        <Badge
-          pill
-          variant="secondary"
-          className="px-2 py-1 my-3 mx-1"
+      <div
+        draggable={false}
+        className={`group-header mx-2`}
+      >
+        <span
+          className={`badge badge-pill badge-type-${
+            TaskType[props.taskType]
+          }`}
+          role="badge-value"
         >
           {
             props.tasks.filter(
               (t: any) => t.type === props.taskType
             ).length
           }
-        </Badge>{" "}
+        </span>
         <span className="my-3 mx-1">
           {props.columnName}
         </span>
-        <button
-          className="float-right btn btn-light"
-          style={{ padding: 0 }}
+
+        <span
+          className="float-right px-2"
+          style={{ fontSize: 28, cursor: "pointer" }}
           onClick={props.handleModal}
           hidden={props.taskType !== TaskType.toDo}
+          data-testid="add-task"
         >
-          <span className="px-2" style={{ fontSize: 28 }}>
-            +
-          </span>
-        </button>
+          +
+        </span>
       </div>
       {props.tasks.map((task: Task, key: number) => {
         return task.type === props.taskType ? (
@@ -82,6 +85,7 @@ export const KanbanColumn: React.FunctionComponent<IProps> = (
               />
               {task.taskName}
               <img
+                role="remove-task"
                 src={Remove}
                 onClick={() => deleteTask(task.id)}
                 alt="remove task"
@@ -90,8 +94,7 @@ export const KanbanColumn: React.FunctionComponent<IProps> = (
               ></img>
             </span>
             <span className="description">
-              {task.description.substring(0, 50)}
-              {"..."}
+              {task.description.length < 50 ? task.description : `${task.description.substring(0, 50)}...`}              
             </span>
           </div>
         ) : (

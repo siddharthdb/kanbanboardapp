@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { Task, TaskType } from "../models/Tasks";
+import { Task, TaskType } from "../../models/Tasks";
 
 interface IProps {
   handleSubmit: (task: Task) => void;
@@ -38,7 +38,7 @@ export const AddTask: React.FunctionComponent<IProps> = (props: IProps) => {
             name="description"
             placeholder="e.g.: Description of task"
           ></Form.Control>
-          <Button className="mt-3" variant="primary" type="submit">
+          <Button className="mt-3" variant="primary" type="submit" data-testid="addTask">
             Add Task
           </Button>
         </Form.Group>

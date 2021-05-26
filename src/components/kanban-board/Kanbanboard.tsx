@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Task, TaskType } from "../models/Tasks";
-import { AddTask } from "./AddTask";
-import { KanbanColumn } from "./KanbanColumn";
+import { Task, TaskType } from "../../models/Tasks";
+import { AddTask } from "../add-task/AddTask";
+import { KanbanColumn } from "../kanban-column/KanbanColumn";
 
 export const KanbanBoard: React.FunctionComponent = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
